@@ -1,0 +1,51 @@
+﻿@model UpdateContactDto
+
+@{
+    ViewData["Title"] = "CreateContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Ana Sayfa İletişim Bilgi İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni İletişim Yazı Girişi</div>
+                        </div>
+                        <input type="hidden" asp-for="ContactID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Location">Lokasyonu Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Location" id="Location">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Phone">Telefon Numarası Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Phone" id="Phone">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Mail">Mail Adresi Giriniz</label>
+                                <input type="email" class="form-control" asp-for="Mail" id="Mail">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Açıklama Giriniz</label>
+                                <textarea rows="5" class="form-control" asp-for="FooterDescription" id="Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">İletişim Bilgi Yazısını Ekle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

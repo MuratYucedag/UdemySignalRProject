@@ -1,0 +1,52 @@
+﻿@model List<ResultDiscountDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Günün İndirimleri İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Günün İndirimleri Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Günün İndirimli Ürünleri Aşağıda Yer Almaktadır. Tema Bütünlüğü İçin 2 Adet İndirimli Ürün Seçiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Ürün</th>
+									<th scope="col">İndirim Oranı</th>
+									<th scope="col">Durum</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.DiscountID</td>
+										<td>@item.Title</td>
+										<td>@item.Amount</td>
+										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-warning">Durum</a></td>
+										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Discount/UpdateDiscount/@item.DiscountID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/Discount/CreateDiscount/" class="btn btn-outline-primary">Yeni İndirimli Ürün Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

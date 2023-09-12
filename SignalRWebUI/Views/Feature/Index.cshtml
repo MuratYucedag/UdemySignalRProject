@@ -1,0 +1,58 @@
+﻿@model List<ResultFeatureDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Öne Çıkan Alan İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Öne Çıkan Alan Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Ana Sayfada Öne Çıkan Alan ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Başlık 1</th>
+									<th scope="col">Başlık 2</th>
+									<th scope="col">Başlık 3</th>
+									<th scope="col">Açıklama 1</th>
+									<th scope="col">Açıklama 2</th>
+									<th scope="col">Açıklama 3</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.FeatureID</td>
+										<td>@item.Title1</td>
+										<td>@item.Title2</td>
+										<td>@item.Title3</td>
+										<td>@item.Description1</td>
+										<td>@item.Description2</td>
+										<td>@item.Description3</td>
+										<td><a href="/Feature/DeleteFeature/@item.FeatureID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Feature/UpdateFeature/@item.FeatureID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/Feature/CreateFeature/" class="btn btn-outline-primary">Yeni Öne Çıkan Alan Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

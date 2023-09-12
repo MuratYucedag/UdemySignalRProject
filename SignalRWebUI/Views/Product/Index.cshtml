@@ -1,0 +1,55 @@
+﻿@model List<ResultProductDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Ürün İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Ürün Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Ürün ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Ürün Adı</th>
+									<th scope="col">Fiyat</th>
+									<th scope="col">Kategori</th>
+									<th scope="col">Durum</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.ProductID</td>
+										<td>@item.ProductName</td>
+										<td>@item.Price</td>
+										<td>@item.CategoryName</td>
+										<td>@item.ProductStatus</td>
+										<td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Product/UpdateProduct/@item.ProductID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/Product/CreateProduct/" class="btn btn-outline-primary">Yeni Ürün Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
