@@ -1,0 +1,34 @@
+﻿@model List<ResultTestimonialDto>
+<section class="client_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center psudo_white_primary mb_45">
+            <h2>
+                Misafirlerimiz Bizim İçin Ne Dediler?
+            </h2>
+        </div>
+        <div class="carousel-wrap row ">
+            <div class="owl-carousel client_owl-carousel">
+              @foreach(var item in Model){
+                <div class="item">
+                    <div class="box">
+                        <div class="detail-box">
+                            <p>
+                                @item.Comment
+                            </p>
+                            <h6>
+                                @item.Name
+                            </h6>
+                            <p>
+                               @item.Title
+                            </p>
+                        </div>
+                        <div class="img-box">
+                            <img src="@item.ImageUrl" alt="" class="box-img">
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

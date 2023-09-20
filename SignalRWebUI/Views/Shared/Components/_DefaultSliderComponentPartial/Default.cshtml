@@ -1,0 +1,81 @@
+﻿@model List<ResultSliderDto>
+@foreach(var item in Model){
+<section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 ">
+                            <div class="detail-box">
+                                <h1>
+                                    @item.Title1
+                                </h1>
+                                <p>
+                                    @item.Description1
+                                </p>
+                                <div class="btn-box">
+                                        <a href="/Menu/Index/" class="btn1">
+                                        Sipariş Ver
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 ">
+                            <div class="detail-box">
+                                <h1>
+                                    @item.Title2
+                                </h1>
+                                <p>
+                                    @item.Description2
+                                </p>
+                                <div class="btn-box">
+                                        <a href="/Menu/Index/" class="btn1">
+                                        Sipariş Ver
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 ">
+                            <div class="detail-box">
+                                <h1>
+                                    @item.Title3
+                                </h1>
+                                <p>
+                                    @item.Description3
+                                </p>
+                                <div class="btn-box">
+                                        <a href="/Menu/Index/" class="btn1">
+                                        Sipariş Ver
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel1" data-slide-to="1"></li>
+                <li data-target="#customCarousel1" data-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+
+</section>
+}
+</div>

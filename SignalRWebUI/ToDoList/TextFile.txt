@@ -17,3 +17,7 @@
 --Kasadaki Tutar
 --Bugünkü Kazanç
 --Masa Sayısı
+
+-------------------------------------------------------------
+
+İstatistiklerin Consume Edilmesi

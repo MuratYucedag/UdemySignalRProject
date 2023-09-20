@@ -1,0 +1,30 @@
+﻿@model List<ResultAboutDto>
+@foreach(var item in Model){
+<section class="about_section layout_padding">
+    <div class="container  ">
+
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="img-box">
+                    <img src="@item.ImageUrl" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            @item.Title
+                        </h2>
+                    </div>
+                    <p>
+                        @item.Description
+                    </p>
+                    <a href="/About/Index/">
+                        Daha Fazlasını Görün
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}

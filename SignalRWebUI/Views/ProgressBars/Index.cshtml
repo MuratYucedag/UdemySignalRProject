@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<div class="content">
+    <div class="container-fluid">
+        <script type="text/javascript">
+
+            $(document).ready(() => {
+
+                var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7186/SignalRHub").build();
+                $("#connstatus").text(connection.state);
+                connection.start().then(() => {
+                    $("#connstatus").text(connection.state);
+                    setInterval(() => {
+                        connection.invoke("SendProgress");
+                    }, 1000);
+                }).catch((err) => { console.log(err) });
+
+                connection.on("ReceiveTotalMoneyCaseAmount", (value) => {
+                    $("#totalmoneycaseamount").text(value);
+                });
+
+                connection.on("ReceiveTActiveOrderCount", (value2) => {
+                    $("#activeordercount").text(value2);
+                });
+
+                connection.on("ReceiveMenuTableCount", (value3) => {
+                    $("#menutablecount").text(value3);
+                });
+
+            });
+
+        </script>
+
+
+        <h4 class="page-title">Admin İstatistikler & Durumlar</h4>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="row row-card-no-pd">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="fw-bold mt-1">Kasadaki Toplam Tutar</p>
+                                <h4 id="totalmoneycaseamount"><b></b></h4>
+                                <a href="/Order/CreateOrder/" class="btn btn-primary btn-full text-left mt-3 mb-3"><i class="la la-plus"></i> Yeni Sipariş</a>
+                            </div>
+                            <div class="card-footer">
+                                <ul class="nav">
+                                    <li class="nav-item"><a class="btn btn-default btn-link" href="/Order/Index/"><i class="la la-history"></i> Siparişler</a></li>
+                                    <li class="nav-item ml-auto"><a class="btn btn-default btn-link" href="/ProgressBars/Index/"><i class="la la-refresh"></i> Sayfayı Yenile</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Profit</span>
+                                        <span class="text-muted fw-bold"> $3K</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="55%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Orders</span>
+                                        <span class="text-muted fw-bold"> 576</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="65%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Tasks Complete</span>
+                                        <span class="text-muted fw-bold"> 70%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="70%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-card">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted">Open Rate</span>
+                                        <span class="text-muted fw-bold"> 60%</span>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stats">
+                            <div class="card-body">
+                                <p class="fw-bold mt-1">Statistic</p>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center icon-warning">
+                                            <i class="la la-pie-chart text-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 d-flex align-items-center">
+                                        <div class="numbers">
+                                            <p class="card-category">Aktif Siparişler</p>
+                                            <h4 class="card-title" id="activeordercount"></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="icon-big text-center">
+                                            <i class="la la-heart-o text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 d-flex align-items-center">
+                                        <div class="numbers">
+                                            <p class="card-category">Masa Sayısı</p>
+                                            <h4 class="card-title" id="menutablecount"></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
