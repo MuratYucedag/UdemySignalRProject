@@ -1,0 +1,60 @@
+﻿@model List<ResultNotificationDto>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Bildirim İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Bildirim Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Bildimler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Açıklama</th>
+									<th scope="col">Tarih</th>
+									<th scope="col">Durum</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+									<th scope="col">Okundu İşaretle</th>
+									<th scope="col">Okunmadı İşaretle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									count++;
+									<tr>
+										<th>@count</th>
+										<td>@item.Description</td>
+										<td>@item.Date</td>
+										<td>@item.Status</td>
+										<td><a href="/Notifications/DeleteNotification/@item.NotificationID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Notifications/UpdateNotification/@item.NotificationID" class="btn btn-outline-success">Güncelle</a></td>
+										<td><a href="/Notifications/NotificationStatusChangeToTrue/@item.NotificationID" class="btn btn-outline-warning">Okundu</a></td>
+										<td><a href="/Notifications/NotificationStatusChangeToFalse/@item.NotificationID" class="btn btn-outline-secondary">Okunmadı</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/Notifications/CreateNotification/" class="btn btn-outline-primary">Yeni Bildirim Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

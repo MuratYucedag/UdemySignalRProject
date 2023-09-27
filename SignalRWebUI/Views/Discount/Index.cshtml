@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
 }
 
 <div class="content">
@@ -16,7 +17,7 @@
 					</div>
 					<div class="card-body">
 						<div class="card-sub">
-							Günün İndirimli Ürünleri Aşağıda Yer Almaktadır. Tema Bütünlüğü İçin 2 Adet İndirimli Ürün Seçiniz.
+                            Günün İndirimli Ürünleri Aşağıda Yer Almaktadır. Tema Bütünlüğü İçin <strong>2 Adet</strong> İndirimli Ürün Seçiniz.
 						</div>
 						<table class="table mt-3">
 							<thead>
@@ -27,18 +28,24 @@
 									<th scope="col">Durum</th>
 									<th scope="col">Sil</th>
 									<th scope="col">Güncelle</th>
+									<th scope="col">Aktif Yap</th>
+									<th scope="col">Pasif Yap</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach (var item in Model)
 								{
+									count++;
 									<tr>
-										<td>@item.DiscountID</td>
+										<th>@count</th>
 										<td>@item.Title</td>
 										<td>@item.Amount</td>
-										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-warning">Durum</a></td>
+										<td>@item.Status</td>
 										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-danger">Sil</a></td>
 										<td><a href="/Discount/UpdateDiscount/@item.DiscountID" class="btn btn-outline-success">Güncelle</a></td>
+										<td><a href="/Discount/ChangeStatusToTrue/@item.DiscountID" class="btn btn-outline-warning">Aktif Yap</a></td>
+										<td><a href="/Discount/ChangeStatusToFalse/@item.DiscountID" class="btn btn-outline-dark">Pasif Yap</a></td>
+
 									</tr>
 								}
 							</tbody>

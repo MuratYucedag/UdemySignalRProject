@@ -1,0 +1,52 @@
+﻿@model List<ResultMenuTableDto>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
+}
+
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Masa İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Masa Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Masalar ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Masa Adı</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									count++;
+									<tr>
+										<th>@count</th>
+										<td>@item.Name</td>
+										<td><a href="/MenuTables/DeleteMenuTable/@item.MenuTableID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/MenuTables/UpdateMenuTable/@item.MenuTableID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/MenuTables/CreateMenuTable/" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -21,7 +21,6 @@
 						<table class="table mt-3">
 							<thead>
 								<tr>
-									<th scope="col">#</th>
 									<th scope="col">Başlık</th>
 									<th scope="col">Açıklama</th>
 									<th scope="col">Sil</th>
@@ -32,7 +31,6 @@
 								@foreach (var item in Model)
 								{
 									<tr>
-										<td>@item.AboutID</td>
 										<td>@item.Title</td>
 										<td>@item.Description</td>
 										<td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Sil</a></td>

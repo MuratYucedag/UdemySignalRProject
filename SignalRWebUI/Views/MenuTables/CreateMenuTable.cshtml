@@ -1,0 +1,33 @@
+﻿@model CreateMenuTableDto
+
+@{
+    ViewData["Title"] = "CreateMenuTable";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Masa İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Masa Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Masa Adını Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Name" id="name">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Masayı Ekle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
