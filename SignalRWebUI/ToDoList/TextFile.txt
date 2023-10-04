@@ -1,6 +1,2 @@
 ﻿ProgressBar İstatistik
-QR Kod Sistemi
-LogOut
-Ayarlar
-Mail?
 Arama İşlemi - Search

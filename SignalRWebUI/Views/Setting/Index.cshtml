@@ -1,0 +1,53 @@
+﻿@model UserEditDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Profil Ayarları</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Şifre ve Bilgi Güncelleme Sayfası</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Adınız</label>
+                                <input type="text" class="form-control" asp-for="Name" id="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Surname">Soyadınız</label>
+                                <input type="text" class="form-control" asp-for="Surname" id="Surname">
+                            </div>
+                            <div class="form-group">
+                                <label for="Mail">Mail Adresiniz</label>
+                                <input type="email" class="form-control" asp-for="Mail" id="Mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="Username">Kullanıcı Adınız</label>
+                                <input type="text" class="form-control" asp-for="Username" id="Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Şifreniz</label>
+                                <input type="password" class="form-control" asp-for="Password" id="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="ConfirmPassword">Şifrenizi Onaylayın</label>
+                                <input type="password" class="form-control" asp-for="ConfirmPassword" id="ConfirmPassword">
+                            </div>
+                            <div class="card-action">
+                                <button class="btn btn-success">Bilgileri Güncelle</button>
+                            </div>
+                        </div>               
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
