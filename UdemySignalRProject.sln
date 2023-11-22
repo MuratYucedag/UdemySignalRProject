@@ -15,13 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.DtoLayer", "SignalR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{80BC948C-37BC-4097-A4A8-4A1CC038BB2F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C92753EC-3F36-491A-B48A-F316553317ED}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QRCodeDLL", "QRCodeDLL", "{B4F8403C-3C03-489B-A630-5DF60DFAF33F}"
-	ProjectSection(SolutionItems) = preProject
-		SignalRWebUI\QRCoder.zip = SignalRWebUI\QRCoder.zip
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,9 +48,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B4F8403C-3C03-489B-A630-5DF60DFAF33F} = {C92753EC-3F36-491A-B48A-F316553317ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0453A381-5F0C-4F6E-9BDF-1085FE9A4FBA}
