@@ -3,17 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33920.267
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{14E73C01-3CDD-49D4-A1F6-D76600C454C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRApi", "SignalRApi\SignalRApi.csproj", "{14E73C01-3CDD-49D4-A1F6-D76600C454C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{C83F134F-6197-4EA5-A523-460A75C14FF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRWebUI", "SignalRWebUI\SignalRWebUI.csproj", "{C83F134F-6197-4EA5-A523-460A75C14FF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{DF19D19B-DEE8-431D-A2DC-C41E65AA1FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{DF19D19B-DEE8-431D-A2DC-C41E65AA1FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{FCBBA2E4-D0F3-4F32-B24C-2732FDB7A371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.DataAccessLayer", "SignalR.DataAccessLayer\SignalR.DataAccessLayer.csproj", "{FCBBA2E4-D0F3-4F32-B24C-2732FDB7A371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DtoLayer", "SignalR.DtoLayer\SignalR.DtoLayer.csproj", "{AF1DADD3-4791-4AD9-A69A-BB507A0D61FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.DtoLayer", "SignalR.DtoLayer\SignalR.DtoLayer.csproj", "{AF1DADD3-4791-4AD9-A69A-BB507A0D61FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{80BC948C-37BC-4097-A4A8-4A1CC038BB2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{80BC948C-37BC-4097-A4A8-4A1CC038BB2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C92753EC-3F36-491A-B48A-F316553317ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QRCodeDLL", "QRCodeDLL", "{B4F8403C-3C03-489B-A630-5DF60DFAF33F}"
+	ProjectSection(SolutionItems) = preProject
+		SignalRWebUI\QRCoder.zip = SignalRWebUI\QRCoder.zip
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +55,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4F8403C-3C03-489B-A630-5DF60DFAF33F} = {C92753EC-3F36-491A-B48A-F316553317ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0453A381-5F0C-4F6E-9BDF-1085FE9A4FBA}
