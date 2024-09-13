@@ -1,0 +1,74 @@
+﻿@model List<ResultTastyApi>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
+<body class="sub_page">
+
+    @await Component.InvokeAsync("_MenuNavbarComponentPartial")
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-dark mb-30">
+                    <a class="breadcrumb-item text-white" href="/Default/Index">Ana Sayfa</a>
+                    <a class="breadcrumb-item text-white" href="/Menu/Index">Api Listesi</a>
+                    <span class="breadcrumb-item active">Tasty Api</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-12 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Ürün Adı</th>
+                            <th>Tahmini Süre</th>
+                            <th>Tarifi İzle</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><img src="@item.thumbnail_url" style="width:50px;height:50px" /></td>
+                            <td>@item.Name</td>
+                            @{
+                                if (item.total_time_minutes == 0)
+                                {
+                                    <td>15</td>
+                                }
+                                else
+                                {
+                                    <td>@item.total_time_minutes</td>
+                                }
+                            }
+                          
+                            <td><a href="@item.original_video_url" class="btn btn-warning">Tarifi İzle</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+</body>
+
+</html>
+
