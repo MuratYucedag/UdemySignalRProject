@@ -1,0 +1,141 @@
+﻿@model List<ResultMenuTableDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+    string color = "";
+    string status = "";
+}
+
+<!DOCTYPE html>
+<html>
+
+
+<style>
+    .widgettrue {
+        width: 200px;
+        height: 100px;
+        background-color: #2ecc71; /* Yeşil arka plan */
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        color: white;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .widgetfalse {
+        width: 200px;
+        height: 100px;
+        background-color: palevioletred; /* Kırmızı arka plan */
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        color: white;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .widget-icon {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+        .widget-icon i {
+            font-size: 24px;
+            color: #2ecc71;
+        }
+
+    .widget-text {
+        margin-left: 20px;
+    }
+
+        .widget-text h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .widget-text p {
+            margin: 0;
+            font-size: 14px;
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
+<body class="sub_page">
+
+    @await Component.InvokeAsync("_MenuNavbarComponentPartial")
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-dark mb-30">
+                    <a class="breadcrumb-item text-white" href="/Default/Index">Ana Sayfa</a>
+                    <a class="breadcrumb-item text-white" href="/Menu/Index">Masa Listesi</a>
+                    <span class="breadcrumb-item active">Masa Seçimi Yapınız</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row px-xl-5" style="margin-right:10px">
+            @foreach (var item in Model)
+            {
+                if (item.Status == false)
+                {
+                    color = "widgettrue";
+                    status = "Masa Boş";
+                }
+                if (item.Status == true)
+                {
+                    color = "widgetfalse";
+                    status = "Masa Dolu";
+                }
+
+                <div class="col-md-3 mb-4">
+                    <div class="@color">
+                        @if (item.Status == true)
+                        {
+                            <div class="widget-icon">
+                                <i class="fas fa-chair"></i><!-- Masa ikonu -->
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="widget-icon">
+                                <a href="/Menu/Index/@item.MenuTableID"> <i class="fas fa-chair"></i></a> <!-- Masa ikonu -->
+                            </div>
+                        }
+                        <div class="widget-text">
+                            <h3>@item.Name</h3>
+                            <p>@status</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+</body>
+
+</html>
+

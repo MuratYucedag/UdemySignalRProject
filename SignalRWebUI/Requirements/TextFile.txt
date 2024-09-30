@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .widget {
+            width: 200px;
+            height: 100px;
+            background-color: #2ecc71; /* Yeşil arka plan */
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .widget-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .widget-icon i {
+            font-size: 24px;
+            color: #2ecc71;
+        }
+
+        .widget-text {
+            margin-left: 20px;
+        }
+
+        .widget-text h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .widget-text p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Widget</title>
+</head>
+<body>
+
+<div class="widget">
+    <div class="widget-icon">
+        <i class="fas fa-chair"></i> <!-- Masa ikonu -->
+    </div>
+    <div class="widget-text">
+        <h3>Bahçe 01</h3>
+        <p>Dolu</p>
+    </div>
+</div>
+
+</body>
+</html>
