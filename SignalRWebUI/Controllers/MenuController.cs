@@ -16,7 +16,7 @@ namespace SignalRWebUI.Controllers
         public async Task<IActionResult> Index(int id)
         {
             ViewBag.v = id; // Burada MenuTableId değerini ayarlıyoruz
-           // TempData["x"] = id; // Eğer bunu kullanıyorsanız
+                            // TempData["x"] = id; // Eğer bunu kullanıyorsanız
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7186/api/Product/ProductListWithCategory");
@@ -45,6 +45,11 @@ namespace SignalRWebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(createBasketDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7186/api/Basket", stringContent);
+
+            var client2 = _httpClientFactory.CreateClient();
+            //var jsonData2 = JsonConvert.SerializeObject(updateCategoryDto);
+            //StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            await client2.GetAsync("https://localhost:7186/api/MenuTables/ChangeMenuTableStatusToTrue?id=" + menuTableId);
 
             if (responseMessage.IsSuccessStatusCode)
             {

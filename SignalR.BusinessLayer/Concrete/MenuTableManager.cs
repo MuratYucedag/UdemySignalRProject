@@ -9,42 +9,52 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-	public class MenuTableManager : IMenuTableService
-	{
-		private readonly IMenuTableDal _menuTableDal;
-		public MenuTableManager(IMenuTableDal menuTableDal)
-		{
-			_menuTableDal = menuTableDal;
-		}
+    public class MenuTableManager : IMenuTableService
+    {
+        private readonly IMenuTableDal _menuTableDal;
+        public MenuTableManager(IMenuTableDal menuTableDal)
+        {
+            _menuTableDal = menuTableDal;
+        }
 
-		public void TAdd(MenuTable entity)
-		{
-			_menuTableDal.Add(entity);
-		}
+        public void TAdd(MenuTable entity)
+        {
+            _menuTableDal.Add(entity);
+        }
 
-		public void TDelete(MenuTable entity)
-		{
-			_menuTableDal.Delete(entity);
-		}
+        public void TChangeMenuTableStatusToFalse(int id)
+        {
+            _menuTableDal.ChangeMenuTableStatusToFalse(id);
+        }
 
-		public MenuTable TGetByID(int id)
-		{
-			return _menuTableDal.GetByID(id);
-		}
+        public void TChangeMenuTableStatusToTrue(int id)
+        {
+            _menuTableDal.ChangeMenuTableStatusToTrue(id);
+        }
 
-		public List<MenuTable> TGetListAll()
-		{
-			return _menuTableDal.GetListAll();
-		}
+        public void TDelete(MenuTable entity)
+        {
+            _menuTableDal.Delete(entity);
+        }
 
-		public int TMenuTableCount()
-		{
-			return _menuTableDal.MenuTableCount();
-		}
+        public MenuTable TGetByID(int id)
+        {
+            return _menuTableDal.GetByID(id);
+        }
 
-		public void TUpdate(MenuTable entity)
-		{
-			_menuTableDal.Update(entity);
-		}
-	}
+        public List<MenuTable> TGetListAll()
+        {
+            return _menuTableDal.GetListAll();
+        }
+
+        public int TMenuTableCount()
+        {
+            return _menuTableDal.MenuTableCount();
+        }
+
+        public void TUpdate(MenuTable entity)
+        {
+            _menuTableDal.Update(entity);
+        }
+    }
 }
